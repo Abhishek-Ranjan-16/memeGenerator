@@ -9,6 +9,13 @@
       rel="icon"
       type="image/x-icon"
     />
+
+    <style>
+      a {
+        text-decoration: none;
+        color: yellow;
+      }
+    </style>
   </head>
   <body
     style="
@@ -35,27 +42,30 @@
       <p>
         <img
           style="height: 40vh; border-radius: 10px"
-          src="{{ url_for('static', filename='images/ray.jpg') }}"
+          src="{{ image_data.url }}"
           alt="Indra eating"
         />
       </p>
-      <p style="font-size: 20px">
-        This is
-    <a target="_blank"
-          href="https://www.linkedin.com/in/indrajit-ray-77a907226/"
-          style="padding: 10px; text-decoration: none; color: yellow"
-        >
-          Indrajit Ray</a
-        >
-    eating sweets.
-      </p>
-      <p style="font-size: 20px">
-        To see memes, append the subreddit name at the end of above url.
-      </p>
-
+      <p style="font-size: 20px">{{ image_data.description | safe }}</p>
+      <form
+        id="variableForm"
+        action="/navigate"
+        method="post"
+        style="padding: 10px"
+        onsubmit="clearForm()"
+      >
+        <h4 style="display: inline">Subreddit:</h4>
+        <input
+          type="text"
+          name="variable_name"
+          placeholder="Enter Subreddit name"
+        />
+        <button type="submit">Submit</button>
+      </form>
       <footer>
         Made by -
-        <a target="_blank"
+        <a
+          target="_blank"
           href="https://github.com/Abhishek-Ranjan-16"
           style="padding: 10px; text-decoration: none; color: yellow"
         >
@@ -63,5 +73,13 @@
         >
       </footer>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var anchors = document.querySelectorAll("a");
+        anchors.forEach(function (anchor) {
+          anchor.setAttribute("target", "_blank");
+        });
+      });
+    </script>
   </body>
 </html>
