@@ -1,0 +1,15 @@
+sudo apt update
+sudo apt install python3-pip -y
+sudo pip3 install flask
+sudo pip3 install requests
+
+nano flasktest.py 
+
+python3 flasktest.y
+
+mkdir meme_flask
+
+nano meme_flask.py
+
+go to the meme_flask folder and run the python file using 
+python3 meme_flask.py
