@@ -24,4 +24,4 @@ def index(channel):
     meme_pic,subreddit=get_meme(channel)
     return render_template("index.html",meme_pic=meme_pic,subreddit=subreddit)
 
-app.run(debug=True)
+app.run()
